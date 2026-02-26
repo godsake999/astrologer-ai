@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import styles from './page.module.css';
 import ChartDisplay from '@/components/ChartDisplay';
 import ReadingResult from '@/components/ReadingResult';
@@ -35,6 +35,17 @@ export default function Home() {
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ResultData | null>(null);
   const [apiError, setApiError] = useState<string | null>(null);
+  const [stars, setStars] = useState<{ left: string, top: string, delay: string }[]>([]);
+
+  useEffect(() => {
+    setStars(
+      Array.from({ length: 20 }).map(() => ({
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+        delay: `${Math.random() * 3}s`,
+      }))
+    );
+  }, []);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -68,11 +79,11 @@ export default function Home() {
       {/* Hero Header */}
       <header className={`${styles.header} animate-fade-in`}>
         <div className={styles.starfield} aria-hidden="true">
-          {Array.from({ length: 20 }).map((_, i) => (
+          {stars.map((star, i) => (
             <span key={i} className={styles.star} style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
+              left: star.left,
+              top: star.top,
+              animationDelay: star.delay,
             }} />
           ))}
         </div>
@@ -178,7 +189,7 @@ export default function Home() {
               )}
               {!result.reading && (
                 <div className={styles.noReadingNote}>
-                  <p>Note: Set <code>GEMINI_API_KEY</code> in <code>backend/.env</code> to enable the AI reading.</p>
+                  <p>Note: Set <code>OPENROUTER_API_KEY</code> in <code>backend/.env</code> to enable the AI reading. (If in a restricted region, a VPN may be required).</p>
                 </div>
               )}
             </div>
