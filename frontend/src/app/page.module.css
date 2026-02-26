@@ -1,0 +1,280 @@
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  min-height: 100vh;
+}
+
+/* ── Header ── */
+.header {
+  position: relative;
+  text-align: center;
+  padding: 4rem 1rem 3rem;
+  border-radius: 30px;
+  background: radial-gradient(ellipse at top, rgba(123, 66, 255, 0.15) 0%, transparent 70%);
+  overflow: hidden;
+}
+
+.title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  background: linear-gradient(135deg, var(--accent-gold) 0%, #ffffff 60%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -0.03em;
+  margin-bottom: 0.75rem;
+}
+
+.subtitle {
+  font-size: 1.15rem;
+  color: var(--accent-gold);
+  opacity: 0.8;
+  letter-spacing: 0.1em;
+  margin-bottom: 0.4rem;
+}
+
+.subtitleEn {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
+/* Starfield decoration */
+.starfield {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.star {
+  position: absolute;
+  width: 3px;
+  height: 3px;
+  background: var(--accent-gold);
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle 3s infinite ease-in-out;
+}
+
+@keyframes twinkle {
+
+  0%,
+  100% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.6;
+  }
+}
+
+/* ── Layout ── */
+.mainGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (min-width: 992px) {
+  .mainGrid {
+    grid-template-columns: 340px 1fr;
+  }
+}
+
+/* ── Form Card ── */
+.formCard {
+  background: linear-gradient(180deg, var(--panel-bg), rgba(22, 10, 36, 0.7));
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius);
+  padding: 2rem;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  position: sticky;
+  top: 2rem;
+}
+
+.formTitle {
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
+  color: var(--accent-gold);
+  text-align: center;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--border-color);
+  padding-bottom: 1rem;
+}
+
+.inputGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.2rem;
+}
+
+.label {
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--text-muted);
+}
+
+.input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border-color);
+  color: #fff;
+  padding: 0.85rem 1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  font-family: inherit;
+  width: 100%;
+}
+
+.input option {
+  background: #160a24;
+  color: #fff;
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--accent-gold);
+  box-shadow: 0 0 0 3px var(--accent-gold-glow);
+}
+
+.submitBtn {
+  background: linear-gradient(135deg, var(--accent-purple), #5422cc);
+  color: #fff;
+  border: none;
+  padding: 1.1rem;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  margin-top: 0.5rem;
+  box-shadow: 0 4px 15px rgba(123, 66, 255, 0.3);
+}
+
+.submitBtn:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(123, 66, 255, 0.5);
+}
+
+.submitBtn:disabled {
+  background: var(--border-color);
+  color: var(--text-muted);
+  box-shadow: none;
+  cursor: not-allowed;
+}
+
+.errorBox {
+  margin-top: 1rem;
+  padding: 0.75rem 1rem;
+  background: rgba(220, 50, 50, 0.1);
+  border: 1px solid rgba(220, 50, 50, 0.4);
+  border-radius: 8px;
+  font-size: 0.85rem;
+  color: #ff8080;
+  line-height: 1.5;
+}
+
+/* ── Results Area ── */
+.resultsArea {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.noReadingNote {
+  padding: 1rem 1.25rem;
+  background: rgba(226, 192, 68, 0.06);
+  border: 1px solid rgba(226, 192, 68, 0.2);
+  border-radius: 10px;
+  font-size: 0.9rem;
+  color: var(--text-muted);
+}
+
+.noReadingNote code {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  color: var(--accent-gold);
+}
+
+/* ── Loading State ── */
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  min-height: 300px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--border-color);
+  border-top-color: var(--accent-gold);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ── Placeholder ── */
+.placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 350px;
+  text-align: center;
+  color: var(--text-muted);
+  border: 1px dashed var(--border-color);
+  border-radius: var(--radius);
+  padding: 4rem 2rem;
+  background: rgba(22, 10, 36, 0.3);
+  gap: 1rem;
+}
+
+.placeholderIcon {
+  font-size: 3.5rem;
+  margin-bottom: 0.5rem;
+  filter: drop-shadow(0 0 10px rgba(226, 192, 68, 0.4));
+}
+
+.featureList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.featureList div {
+  padding: 0.4rem 0.9rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  color: var(--text-muted);
+}
+
+/* ── Footer ── */
+.footer {
+  text-align: center;
+  padding: 2rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  border-top: 1px solid var(--border-color);
+  line-height: 1.7;
+}

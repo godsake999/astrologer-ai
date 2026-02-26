@@ -1,0 +1,252 @@
+.container {
+    background: linear-gradient(180deg, var(--panel-bg), rgba(22, 10, 36, 0.7));
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+}
+
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.tab {
+    flex: 1;
+    padding: 1rem 0.5rem;
+    background: none;
+    border: none;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+    font-family: inherit;
+}
+
+.tab:hover {
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.tab.active {
+    color: var(--accent-gold);
+    border-bottom-color: var(--accent-gold);
+    background: rgba(226, 192, 68, 0.05);
+}
+
+.panel {
+    padding: 2rem;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(6px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.panelTitle {
+    font-size: 1.1rem;
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.85rem;
+}
+
+/* Western Chart */
+.planetGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.planetCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem 0.75rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    gap: 0.4rem;
+    transition: border-color 0.2s;
+}
+
+.planetCard:hover {
+    border-color: var(--accent-purple);
+}
+
+.planetCard.ascendant {
+    border-color: var(--accent-gold);
+    background: rgba(226, 192, 68, 0.05);
+}
+
+.planetSymbol {
+    font-size: 1.4rem;
+    color: var(--accent-gold);
+}
+
+.planetName {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.planetValue {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-main);
+    text-align: center;
+}
+
+.aspectList {
+    margin-top: 1rem;
+}
+
+.aspectList h4 {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    margin-bottom: 0.75rem;
+}
+
+.aspectItem {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 0.5rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    font-size: 0.9rem;
+    color: var(--text-main);
+}
+
+.aspectDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent-purple);
+    flex-shrink: 0;
+}
+
+/* Vedic Grid */
+.vedicGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 1rem;
+}
+
+.vedicCard {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.2rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.vedicLabel {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.vedicValue {
+    font-size: 1.05rem;
+    font-weight: 600;
+    color: var(--accent-gold);
+}
+
+.vedicSub {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+
+/* Mahabote Grid */
+.mahaboteInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    padding: 1.2rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    border: 1px solid var(--border-color);
+}
+
+.infoRow {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.95rem;
+}
+
+.infoLabel {
+    color: var(--text-muted);
+    min-width: 120px;
+    font-size: 0.85rem;
+}
+
+.infoValue {
+    font-weight: 600;
+    color: var(--accent-gold);
+}
+
+.infoEnglish {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+.mahaboteGrid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.gridCell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    gap: 0.3rem;
+    transition: all 0.2s;
+    font-size: 1rem;
+}
+
+.gridCell.activeCell {
+    background: linear-gradient(135deg, rgba(226, 192, 68, 0.15), rgba(123, 66, 255, 0.1));
+    border-color: var(--accent-gold);
+    box-shadow: 0 0 15px var(--accent-gold-glow);
+}
+
+.cellName {
+    font-size: 0.7rem;
+    color: var(--text-muted);
+}
+
+.characteristics {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    line-height: 1.7;
+    padding-top: 0.5rem;
+    border-top: 1px solid var(--border-color);
+}

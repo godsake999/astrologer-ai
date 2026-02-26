@@ -1,0 +1,62 @@
+:root {
+  --bg-color: #0a0410;
+  --panel-bg: #160a24;
+  --text-main: #e8dff5;
+  --text-muted: #9e8cb8;
+  --accent-gold: #e2c044;
+  --accent-gold-glow: rgba(226, 192, 68, 0.25);
+  --accent-purple: #7b42ff;
+  --border-color: #371d5e;
+  --radius: 16px;
+  --font-burmese: 'Myanmar Text', 'Padauk', sans-serif;
+  --font-english: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-main);
+  font-family: var(--font-english);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-color);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-purple);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  color: #ffffff;
+}
+
+.burmese {
+  font-family: var(--font-burmese);
+  line-height: 1.8;
+}
+
+/* Base animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.6s ease forwards;
+}
